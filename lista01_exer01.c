@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
 #define INICIAL 5
 
 int main() {
@@ -9,7 +8,7 @@ int main() {
     numeros = (int *) calloc(tamanho, sizeof(int));
 
     if (numeros == NULL) {
-        printf("Erro ao alocar memória! Encerrando...");
+        printf("Erro ao alocar memória! Encerrando...\n");
         exit(1);
     } else {
         for(cont = 0; cont <= tamanho; cont++) {
@@ -24,7 +23,7 @@ int main() {
                     tamanho += INICIAL;
                     numeros = (int *) realloc(numeros, tamanho*sizeof(int));
                     if (numeros == NULL) {
-                        printf("Erro ao alocar memória! Encerrando...");
+                        printf("Erro ao alocar memória! Encerrando...\n");
                         exit(1);
                     }
                 }

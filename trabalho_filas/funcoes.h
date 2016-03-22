@@ -5,8 +5,8 @@ struct Node{
 typedef struct Node node;
 
 node* init();
-int empty_queue(node *head);
-int full_queue(node *head);
+int empty_queue(int size);
+int full_queue(int size, int max);
 node * push(node *last, int value);
-node * pull(node *head);
+node * pop(node *head);
 void print_queue(node *head);

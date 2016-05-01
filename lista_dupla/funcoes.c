@@ -2,19 +2,17 @@
 #include <stdio.h>
 #include "funcoes.h"
 
+// implementar lista duplamente encadeada
+// inserir/remover inicio
+// inserir/remover meio
+// inserir/remover fim
+
 node* init() {
     return NULL;
 };
 
-int empty_queue(int size) {
-    if (size == 0) {
-        return 1;
-    }
-    return 0;
-};
-
-int full_queue(int size, int max) {
-    if (size == max) {
+int empty_queue(node *head) {
+    if (head == NULL) {
         return 1;
     }
     return 0;
@@ -37,6 +35,25 @@ node * pop(node *head) {
     new_head = head->prox;
     free(head);
     return new_head;
+};
+
+node * middlepush(node *head, int pos, int value) {
+    node *new_val, *current, *last;
+    current = head;
+    last = head;
+    new_val = (node *) malloc(1*sizeof(node));
+
+    if (current != NULL && new_val != NULL) {
+        while (current->prox != NULL && current->num != pos) {
+            last = current;
+            current = current->prox;
+        }
+        new_val->num = value;
+        new_val->prox = current;
+        last->prox = new_val;
+    }
+
+    return head;
 };
 
 void print_queue(node *head) {
